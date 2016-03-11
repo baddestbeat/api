@@ -1,12 +1,13 @@
 class Gcv
-  attr_accessor :endpoint_uri, :file_path
+  #attr_accessor :endpoint_uri, :file_path
 
-  def initialize(file_path)
-    @endpoint_uri = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['SERVER_KEY']}"
-    @file_path = file_path
-  end
+  # def initialize(file_path)
+  #   @endpoint_uri = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['SERVER_KEY']}"
+  #   @file_path = file_path
+  # end
 
-  def request
+  def request(file_path)
+    endpoint_uri = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['SERVER_KEY']}"
     http_client = HTTPClient.new
     content = Base64.strict_encode64(File.new(file_path).read)
     response = http_client.post_content(endpoint_uri, request_json(content), 'Content-Type' => 'application/json')

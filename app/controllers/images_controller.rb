@@ -8,6 +8,6 @@ class ImagesController < ApplicationController
   def upload(image)
     @image = Image.new(image)
     @image.save
-    @result = Gcv.new(@image.file.path).request
+    @result = Gcv.new.request(@image.file.path)
   end
 end
