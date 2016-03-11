@@ -1,3 +1,44 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "UTF-8";
+$image-uploads-color: #0000FF;
+.image-upload-show-result{
+
+}
+.image-upload-show-words{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.image-upload-words-wrapper{
+  text-align:center;
+  margin: 0px 15px 2px 15px;
+}
+.image-upload-words{
+  background-color: $image-uploads-color;
+  border-radius:5px;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 60px;
+  padding: 10px 5px;
+  text-align: center;
+}
+.image-upload-edit-word{
+  width:66px;
+  &:focus{
+    border: 1px solid $image-uploads-color;
+    outline: 0;
+  }
+}
+.image-upload-word-edit, .image-upload-block-delete{
+  font-size: 12px;
+  line-height: 20px;
+  color: #000000;
+}
+.image-upload-submit{
+  margin-top:30px;
+  text-align: center;
+}
