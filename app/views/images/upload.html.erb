@@ -1,0 +1,70 @@
+
+<h2>結果</h2>
+<section class="upload-loaded-result">
+
+  <%= form_tag("/new", method: "post") do %>
+    <% @result.each do |word|  %>
+      <div class="hoge">
+        <span class="upload-loaded-words"><%= word %></span><br>
+        <%= text_field_tag :words, word, style: "display:none;" %>
+        <a class="edit" href="javascript:void(0);">edit</a>
+        <a class="delete" href="javascript:void(0);">delete</a>
+      </div>
+    <% end %>
+  <% end %>
+</section>
+<%= javascript_tag do %>
+
+$(function () {
+    // edit
+    $(".edit").on('click', function(){
+        $(this).parent().children("a").css("display", "none");
+        $(this).parent().children("input")
+            .css("display", "")
+            .focus();
+        $("input").blur(function() {
+            var textVal = $(this).val();
+            if(textVal !== ""){
+                $(this).parent().children("span").html(textVal);
+            };
+            $(this).parent().children().css("display", "");
+            $(this).css("display", "none");
+        });
+    })
+    //  delete
+    $(".delete").on("click", function(){
+      $(this).parent().remove();
+    });
+});
+<% end %>
+<style>
+.upload-loaded-result{
+
+}
+form{
+  display: flex;
+  flex-direction: row;
+}
+div{
+
+  text-align:center;
+  margin: 0 15px;
+}
+.upload-loaded-words{
+  background-color: #0000FF;
+  border-radius:5px;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  min-width: 60px;
+  padding: 10px 5px;
+  text-align: center;
+}
+input{
+  width:66px;
+}
+input:focus{
+  border: 1px solid #0000FF;
+  outline: 0;
+}
+</style>

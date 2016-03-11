@@ -1,3 +1,11 @@
-.vagrant/*
-
+.env
+.swp
+*.log
 vendor/bundle/*
+.DS_Store
+log/*.log
+tmp/cache/assets/*
+tmp/pids/*
+
+
+public/uploads/image/*
