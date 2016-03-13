@@ -70,3 +70,6 @@ gem 'action_args'
 gem 'carrierwave'
 gem 'httpclient'
 gem 'dotenv-rails'
+
+# for tinypng
+gem "tinify"

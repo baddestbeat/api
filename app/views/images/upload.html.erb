@@ -2,6 +2,7 @@
 
 <section class="image-upload-show-result">
   <h2>結果</h2>
+
   <%= form_tag("/new", method: "post") do %>
   　<div class="image-upload-show-words">
       <% @result.each_with_index do |word, i|  %>
@@ -16,3 +17,4 @@
     <p class="image-upload-submit"><%= submit_tag '翻訳する' %></p>
   <% end %>
 </section>
+<%= image_tag "http://img.learntecs.xyz/upload-images/" + @image.file %>
