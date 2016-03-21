@@ -68,3 +68,24 @@ $image-uploads-color: #0000FF;
   font-size: 12px;
   margin: 0 auto;
 }
+
+.list-images-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  align-items:center;
+}
+.list-images-title{
+  color: #ffffff;
+  height:300px;
+  width: 300px;
+  background-color: #808080;
+  text-align: center;
+  line-height: 300px;
+  margin: 10px 0;
+}
+.list-images{
+  box-sizing:border-box;
+  margin: 10px 0;
+}

@@ -74,3 +74,5 @@ gem 'dotenv-rails'
 
 # for tinypng
 gem "tinify"
+gem 'kaminari', '1.0.0.alpha', github: 'amatsuda/kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'

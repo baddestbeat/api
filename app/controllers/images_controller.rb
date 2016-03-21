@@ -22,7 +22,7 @@ class ImagesController < ApplicationController
   end
 
   def list
-
+    @images = Image.order(:created_at).page params[:page]
   end
 
 

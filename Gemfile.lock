@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: 3974ae5f39ce31bfca28d17eccd8daf3ca263aa3
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -216,9 +224,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
-    kaminari (0.16.3)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     kaminari-bootstrap (3.0.1)
       kaminari (>= 0.13.0)
       rails
@@ -380,6 +385,7 @@ DEPENDENCIES
   httpclient
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari (= 1.0.0.alpha)!
   kaminari-bootstrap (~> 3.0.1)
   mysql2 (>= 0.3.13, < 0.5)
   pry-byebug

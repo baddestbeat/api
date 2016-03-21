@@ -1,0 +1,10 @@
+
+<section class="list-images-wrapper">
+  <h2 class="list-images-title">最近追加した画像一覧</h2>
+  <% if @images %>
+    <% @images.each do |img| %>
+      <p class="list-images"><%= image_tag "https://img.learntecs.xyz/#{img.path}", :alt => img.file.filename %></p>
+    <% end %>
+  <% end %>
+</section>
+<%= paginate @images %>

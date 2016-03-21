@@ -15,6 +15,9 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
+img {
+  vertical-align: bottom;
+}
 #wrapper{
   position: relative;
   min-height: 100%;
@@ -106,4 +109,29 @@ small{
   font-size: 14px;
   padding: 10px 10px;
   margin: 20px 0;
+}
+
+.pagination{
+  list-style:none;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  justify-content:center;
+  margin:15px 0 30px;
+  li{
+    background-color: #808080;
+    padding: 3px 8px;
+    &:not(:last-child){
+        margin-right: 5px;
+    }
+    a{
+      color: #ffffff;
+      text-decoration: none;
+      &:hover{
+        color: #ff0000;
+      }
+
+    }
+
+  }
 }

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :images do
     collection do
       post :upload
+      get  :list
     end
   end
 
