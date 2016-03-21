@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       post :upload
       get  :list
+      get  :about
     end
   end
 

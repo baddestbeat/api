@@ -5,6 +5,8 @@
     <% @images.each do |img| %>
       <p class="list-images"><%= image_tag "https://img.learntecs.xyz/#{img.path}", :alt => img.file.filename %></p>
     <% end %>
+  <% else %>
+    <p>画像がまだ追加されておりません。<%= linkk_to root_path, "こちら" %>からご利用ください</p>
   <% end %>
 </section>
 <%= paginate @images %>

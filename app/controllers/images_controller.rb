@@ -22,9 +22,11 @@ class ImagesController < ApplicationController
   end
 
   def list
-    @images = Image.order(:created_at).page params[:page]
+    @images = Image.order("created_at DESC").page params[:page]
   end
 
+  def about
+  end
 
   def save_light_img_s3(img, id, path)
     source = Tinify.from_file(img)
