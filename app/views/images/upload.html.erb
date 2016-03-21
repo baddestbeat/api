@@ -1,20 +1,22 @@
-
-
 <section class="image-upload-show-result">
-  <h2>結果</h2>
-
-  <%= form_tag("/new", method: "post") do %>
+  <h2 class="gvc-title">GOOGLE CLOUD VISIONでの結果</h2>
+  <p class="image-uploaded"><%= image_tag "https://img.learntecs.xyz/#{@image.path}", :alt => @image.file.filename %></p>
+  <p class="image-uploaded"><%= link_to "元の大きさで見る", @image.file.url, {target: "_blank"} %>
+  <%= form_tag("/discogs", method: "post") do %>
   　<div class="image-upload-show-words">
-      <% @result.each_with_index do |word, i|  %>
-        <div class="image-upload-words-wrapper">
-          <span class="image-upload-words"><%= word %></span><br>
-          <%= text_field_tag :"word#{i}" , word, style: "display:none;", class: "image-upload-edit-word" %>
-          <a class="image-upload-word-edit" href="javascript:void(0);">edit</a>
-          <a class="image-upload-block-delete" href="javascript:void(0);">delete</a>
-        </div>
+      <% unless @result.nil? %>
+        <% @result.each_with_index do |word, i|  %>
+          <div class="image-upload-words-wrapper">
+            <span class="image-upload-words"><%= word %></span><br>
+            <%= text_field_tag :"word#{i}" , word, style: "display:none;", class: "js-image-upload-edit-word" %>
+            <a class="js-image-upload-word-edit" href="javascript:void(0);">edit</a>
+            <a class="js-image-upload-block-delete" href="javascript:void(0);">delete</a>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="image-no-result">画像から文字が読み取れませんでした。</p>
       <% end %>
     </div><!-- /mage-upload-show-words -->
-    <p class="image-upload-submit"><%= submit_tag '翻訳する' %></p>
+    <!-- <p class="image-upload-submit"><%= submit_tag 'discogsで調べる' %></p> -->
   <% end %>
 </section>
-<%= image_tag "http://img.learntecs.xyz/upload-images/" + @image.file %>

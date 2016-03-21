@@ -9,15 +9,24 @@ class ImagesController < ApplicationController
   end
 
   def upload(image)
-    path= Time.parse(Time.now.to_s).to_i.to_s + "/" + image["file"].original_filename.to_s
-    #File.open("public/upload-images/#{path}", 'wb')
-    @image=Image.create!(file: path)
-    save_light_img_s3(image["file"].tempfile, path)
-    @result = Gcv.new.request(image["file"].tempfile)
+    if(image[:file].nil?)
+      redirect_to root_path
+    end
+    env_prefix = get_env
+    @image = Image.create!(file: image[:file])
+    resized_path = "#{env_prefix}/uploads/image/file/#{@image.id}/300/#{image[:file].original_filename}"
+    @image.path = resized_path
+    @image.save
+    save_light_img_s3(image[:file].tempfile, @image.id, resized_path)
+    @result = Gcv.new.request(image[:file].tempfile)
+  end
+
+  def list
+
   end
 
 
-  def save_light_img_s3(img, path)
+  def save_light_img_s3(img, id, path)
     source = Tinify.from_file(img)
     resized = source.resize(
       method: "fit",
@@ -29,7 +38,7 @@ class ImagesController < ApplicationController
       aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
       aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
       region: "ap-northeast-1",
-      path: ENV["S3_BUCKET_PATH"] + path
+      path: "api-img/#{path}"
     )
   end
 end

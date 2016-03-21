@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160310072535) do
 
   create_table "images", force: :cascade do |t|
     t.string   "file",       limit: 255
+    t.string   "path",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

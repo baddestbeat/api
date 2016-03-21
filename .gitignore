@@ -1,6 +1,6 @@
 .env
 .swp
-*.log
+log/*
 vendor/bundle/*
 .DS_Store
 log/*.log

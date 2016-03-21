@@ -1,8 +1,109 @@
 @charset "UTF-8";
+$base-font-color: #ffffff;
+$max-width: 960px;
+$min-width: 400px;
 
-body {
-  font-family: “Times New Roman”, “游明朝”, YuMincho, “ヒラギノ明朝 ProN W3”, “Hiragino Mincho ProN”, “メイリオ”, Meiryo, serif;
-  min-width: 480px;
-  max-width: 960px;
+.width-set{
+  min-width: $min-width;
+  max-width: $max-width;
   margin: 0 auto;
+}
+
+html, body {
+  font-family: “Times New Roman”, “游明朝”, YuMincho, “ヒラギノ明朝 ProN W3”, “Hiragino Mincho ProN”, “メイリオ”, Meiryo, serif;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+#wrapper{
+  position: relative;
+  min-height: 100%;
+}
+header{
+  background-color: #000000;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+.header-global-menu{
+  @extend .width-set;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  flex-wrap: wrap;
+  justify-content:space-around;
+}
+
+.global-header-css{
+  text-align: center;
+  width: 33%;
+  & a{
+    color: $base-font-color;
+    text-decoration: none;
+    &:hover{
+      color: #FF0000;
+      border-bottom: 2px solid #FF0000;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.header-main-title{
+  @extend .global-header-css;
+  font-size:18px;
+}
+.header-menu{
+  @extend .global-header-css;
+  border-left: 1px dotted $base-font-color;
+  font-size: 14px;
+}
+
+#content-container{
+  box-sizing:border-box;
+  @extend .width-set;
+  padding:30px 20px 41px;
+}
+
+footer{
+  width: 100%;
+  background-color: #000000;
+  position: absolute;
+  bottom: 0;
+}
+.footer-global-menu{
+  @extend .width-set;
+  display: flex;
+  flex-direction: row-reverse;
+  font-weight: bold;
+  flex-wrap: wrap;
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  a{
+    color: #808080;
+    text-decoration: none;
+    &:hover{
+      color: $base-font-color;
+      border-bottom: 1px solid $base-font-color;
+    }
+  }
+}
+.footer-menu{
+  margin-right: 10px;
+}
+small{
+  color: #000000;
+  text-align: center;
+  display:block;
+  font-size:10px;
+  padding:3px 0;
+  background-color: $base-font-color;
+}
+#js-attention{
+  background-color: #808080;
+  border: 1px dotted #000000;
+  color: $base-font-color;
+  font-size: 14px;
+  padding: 10px 10px;
+  margin: 20px 0;
 }

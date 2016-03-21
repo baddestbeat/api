@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="wrapper">
+    <header>
+      <nav class="header-global-menu">
+        <h1 class="header-main-title"><%=link_to "GCV", root_path %></h1>
+        <p class="header-menu"><%= link_to "about", root_path %></p>
+        <p class="header-menu"><%= link_to "recently", list_images_path %></p>
+      </nav>
+    </header>
+    <div id="content-container">
+      <%= yield %>
+    </div>
+    <footer>
+      <nav class="footer-global-menu">
+        <p class="footer-menu"><%= link_to "recently", root_path %></p>
+        <p class="footer-menu"><%= link_to "about", root_path %></p>
+        <p class="footer-menu"><%=link_to "home", list_images_path %></p>
+      </nav>
+      <small>&#169;dai-takahashi</small>
+    </footer>
+  </div><!-- /wrapper -->
 </body>
 </html>

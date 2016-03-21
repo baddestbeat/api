@@ -11,7 +11,11 @@ class Gcv
     http_client = HTTPClient.new
     content = Base64.strict_encode64(File.new(file_path).read)
     response = http_client.post_content(endpoint_uri, request_json(content), 'Content-Type' => 'application/json')
-    return JSON.parse(response)['responses'].first['textAnnotations'].first['description'].split(' ')
+    unless JSON.parse(response)['responses'].first['textAnnotations'].nil?
+      return JSON.parse(response)['responses'].first['textAnnotations'].first['description'].split(' ')
+    else
+      return nil
+    end
     #result_parse(response)
   end
 

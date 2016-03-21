@@ -68,6 +68,7 @@ end
 
 gem 'action_args'
 gem 'carrierwave'
+gem 'fog'
 gem 'httpclient'
 gem 'dotenv-rails'
 

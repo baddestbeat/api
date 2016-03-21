@@ -1,5 +1,5 @@
-<h1>New Image</h1>
+<h2 class="gvc-title">画像を選択してください</h2>
 <%= form_for @image, url: upload_images_path, html: { multipart: true } do |f| %>
-  <%= f.file_field :file %>
-  <p class="actions"><%= f.submit 'アップロード'%></p>
+  <p class="select-image-input"><%= f.file_field :file %></p>
+  <p class="select-image-submit"><%= f.submit 'アップロード'%></p>
 <% end %>

@@ -3,8 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @charset "UTF-8";
 $image-uploads-color: #0000FF;
-.image-upload-show-result{
 
+.gvc-title{
+  font-size: 18px;
+  font-weight:bold;
+  padding-bottom:30px;
+}
+.select-image-submit{
+  margin: 30px 0;
+  text-align: center;
+}
+.select-image-input{
+  margin-top:30px;
+  text-align: center
+}
+
+
+
+.image-uploaded{
+  text-align: center;
+  margin-bottom: 15px;
+  font-size:12px;
+}
+.image-upload-show-result{
+  paddiing-bottom: 30px;
 }
 .image-upload-show-words{
   display: flex;
@@ -26,14 +48,14 @@ $image-uploads-color: #0000FF;
   padding: 10px 5px;
   text-align: center;
 }
-.image-upload-edit-word{
+.js-image-upload-edit-word{
   width:66px;
   &:focus{
     border: 1px solid $image-uploads-color;
     outline: 0;
   }
 }
-.image-upload-word-edit, .image-upload-block-delete{
+.js-image-upload-word-edit, .js-image-upload-block-delete{
   font-size: 12px;
   line-height: 20px;
   color: #000000;
@@ -41,4 +63,8 @@ $image-uploads-color: #0000FF;
 .image-upload-submit{
   margin-top:30px;
   text-align: center;
+}
+.image-no-result{
+  font-size: 12px;
+  margin: 0 auto;
 }

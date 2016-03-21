@@ -1,11 +1,11 @@
 $(function () {
     // edit
-    $(".image-upload-word-edit").on('click', function(){
+    $(".js-image-upload-word-edit").on('click', function(){
         $(this).parent().children("a").css("display", "none");
         $(this).parent().children("input")
             .css("display", "")
             .focus();
-        $(".image-upload-edit-word").blur(function() {
+        $(".js-image-upload-edit-word").blur(function() {
             var textVal = $(this).val();
             if(textVal !== ""){
                 $(this).parent().children("span").html(textVal);
@@ -15,7 +15,18 @@ $(function () {
         });
     })
     //  delete
-    $(".image-upload-block-delete").on("click", function(){
+    $(".js-image-upload-block-delete").on("click", function(){
       $(this).parent().remove();
+    });
+    // submit
+    $("#new_image").submit(function() {
+      if ($("input[name='image[file]']").val() == '') {
+        $("#js-attention").remove();
+        $("#image_file").focus();
+        $("#new_image").prepend("<p id='js-attention'>ファイルを選択してください</p>");
+        return false;
+      }
+
+      $(":submit", this).prop("disabled", true);
     });
 });
