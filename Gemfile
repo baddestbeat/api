@@ -66,6 +66,10 @@ group :development do
   gem 'rubocop', require: false
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 gem 'action_args'
 gem 'carrierwave'
 gem 'fog'
