@@ -17,9 +17,19 @@ $image-uploads-color: #0000FF;
   margin-top:30px;
   text-align: center
 }
-
-
-
+.new-image-modal{
+   position:fixed;
+   top:0;
+   left:0;
+   height:100%;
+   width:100%;
+   background:rgba(0,0,0,0.8);
+}
+.gauge-loader{
+    position: fixed;
+    top:50%;
+    left:50%;
+}
 .image-uploaded{
   text-align: center;
   margin-bottom: 15px;

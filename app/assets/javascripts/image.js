@@ -26,7 +26,7 @@ $(function () {
         $("#new_image").prepend("<p id='js-attention'>ファイルを選択してください</p>");
         return false;
       }
-
-      $(":submit", this).prop("disabled", true);
+      $("body").append('<div class="new-image-modal"><span class="gauge-loader">Loading&#8230;</span></div>');
+      // $(":submit", this).prop("disabled", true);
     });
 });
