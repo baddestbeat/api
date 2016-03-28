@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :images do
     collection do
       post :upload
-      get  :list
-      get  :about
-      post  :trans
+      get :list
+      get :about
+      post :trans
     end
   end
 
