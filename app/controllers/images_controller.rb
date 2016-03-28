@@ -7,16 +7,21 @@ class ImagesController < ApplicationController
     @image = Image.new
   end
 
-  def upload(image)
-    @image = Image.new(file: image[:file])
+  def upload
+    if(params[:image])
+      @image = Image.new(file: params[:image][:file])
+    else
+      @image = Image.new
+    end
     if @image.save
       env_prefix = get_env
-      resized_path = "#{env_prefix}/uploads/image/file/#{@image.id}/300/#{image[:file].original_filename}"
+      resized_path = "#{env_prefix}/uploads/image/file/#{@image.id}/300/#{params[:image][:file].original_filename}"
       @image.path = resized_path
       @image.save
-      save_light_img_s3(image[:file].tempfile, @image.id, resized_path)
-      @result = GoogleApi.new.request(image[:file].tempfile)
-      return false
+      save_light_img_s3(params[:image][:file].tempfile, @image.id, resized_path)
+      @result = GoogleApi.new.request(params[:image][:file].tempfile)
+    else
+      render :action => 'new'
     end
 
   end
