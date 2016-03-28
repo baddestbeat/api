@@ -85,3 +85,6 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 
 # for google translate
 gem 'easy_translate'
+
+# for javascript
+gem 'jquery-turbolinks'
