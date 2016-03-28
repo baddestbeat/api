@@ -2,23 +2,23 @@ class ImagesController < ApplicationController
   permits :file
   require 'time'
   require "tinify"
-  Tinify.key = ENV["TINTPNG_API_KEY"]
 
   def new
     @image = Image.new
   end
 
   def upload(image)
-    if(image[:file].nil?)
-      redirect_to root_path
+    @image = Image.new(file: image[:file])
+    if @image.save
+      env_prefix = get_env
+      resized_path = "#{env_prefix}/uploads/image/file/#{@image.id}/300/#{image[:file].original_filename}"
+      @image.path = resized_path
+      @image.save
+      save_light_img_s3(image[:file].tempfile, @image.id, resized_path)
+      @result = GoogleApi.new.request(image[:file].tempfile)
+      return false
     end
-    env_prefix = get_env
-    @image = Image.create!(file: image[:file])
-    resized_path = "#{env_prefix}/uploads/image/file/#{@image.id}/300/#{image[:file].original_filename}"
-    @image.path = resized_path
-    @image.save
-    save_light_img_s3(image[:file].tempfile, @image.id, resized_path)
-    @result = Gcv.new.request(image[:file].tempfile)
+
   end
 
   def list
@@ -28,7 +28,13 @@ class ImagesController < ApplicationController
   def about
   end
 
+  def trans
+    EasyTranslate.api_key = ENV['TRANS_SERVER_KEY']
+    @translated = EasyTranslate.translate(params.delete_if{|p| p !~ /^word/ }.sort.collect!{ |k, v| v }.join(" "), :to => :ja)
+  end
+
   def save_light_img_s3(img, id, path)
+    Tinify.key = ENV["TINTPNG_API_KEY"]
     source = Tinify.from_file(img)
     resized = source.resize(
       method: "fit",

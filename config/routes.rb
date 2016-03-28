@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post :upload
       get  :list
       get  :about
+      post  :trans
     end
   end
 

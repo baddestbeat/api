@@ -1,4 +1,4 @@
-class Gcv
+class GoogleApi
   #attr_accessor :endpoint_uri, :file_path
 
   # def initialize(file_path)
@@ -7,7 +7,7 @@ class Gcv
   # end
 
   def request(file_path)
-    endpoint_uri = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['SERVER_KEY']}"
+    endpoint_uri = "https://vision.googleapis.com/v1/images:annotate?key=#{ENV['GCV_SERVER_KEY']}"
     http_client = HTTPClient.new
     content = Base64.strict_encode64(File.new(file_path).read)
     response = http_client.post_content(endpoint_uri, request_json(content), 'Content-Type' => 'application/json')
@@ -18,6 +18,11 @@ class Gcv
     end
     #result_parse(response)
   end
+
+  # def translate(words)
+  #   endpoint_uri = "https://www.googleapis.com/language/translate/v2?key=#{ENV['TRANS_SERVER_KEY']}&source=en&target=ja&q="
+  #
+  # end
 
   private
 

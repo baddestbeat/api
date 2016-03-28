@@ -2,7 +2,7 @@
   <h2 class="gvc-title">GOOGLE CLOUD VISIONでの結果</h2>
   <p class="image-uploaded"><%= image_tag "https://img.learntecs.xyz/#{@image.path}", :alt => @image.file.filename %></p>
   <p class="image-uploaded"><%= link_to "元の大きさで見る", @image.file.url, {target: "_blank"} %>
-  <%= form_tag("/discogs", method: "post") do %>
+  <%= form_tag( trans_images_path, method: "post") do %>
   　<div class="image-upload-show-words">
       <% unless @result.nil? %>
         <% @result.each_with_index do |word, i|  %>
@@ -17,6 +17,6 @@
         <p class="image-no-result">画像から文字が読み取れませんでした。</p>
       <% end %>
     </div><!-- /mage-upload-show-words -->
-    <!-- <p class="image-upload-submit"><%= submit_tag 'discogsで調べる' %></p> -->
+    <p class="image-upload-submit"><%= submit_tag '翻訳する' %></p>
   <% end %>
 </section>

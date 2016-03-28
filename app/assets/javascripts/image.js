@@ -19,14 +19,15 @@ $(function () {
       $(this).parent().remove();
     });
     // submit
-    $("#new_image").submit(function() {
+    $("form").submit(function() {
+      $("body").append('<div class="new-image-modal"><span class="gauge-loader">Loading&#8230;</span></div>');
       if ($("input[name='image[file]']").val() == '') {
-        $("#js-attention").remove();
+        $(".new-image-modal").remove();
         $("#image_file").focus();
         $("#new_image").prepend("<p id='js-attention'>ファイルを選択してください</p>");
         return false;
       }
-      $("body").append('<div class="new-image-modal"><span class="gauge-loader">Loading&#8230;</span></div>');
+
       // $(":submit", this).prop("disabled", true);
     });
 });
