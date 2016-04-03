@@ -1,32 +1,56 @@
 $(function () {
-    // edit
-    $(".js-image-upload-word-edit").on('click', function(){
-        $(this).parent().children("a").css("display", "none");
-        $(this).parent().children("input")
-            .css("display", "")
-            .focus();
-        $(".js-image-upload-edit-word").blur(function() {
-            var textVal = $(this).val();
-            if(textVal !== ""){
-                $(this).parent().children("span").html(textVal);
-            };
-            $(this).parent().children().css("display", "");
-            $(this).css("display", "none");
-        });
-    })
     //  delete
     $(".js-image-upload-block-delete").on("click", function(){
       $(this).parent().remove();
     });
     // submit
     $("form").submit(function() {
-      // if (!$("input[name='image[file]']").val()) {
       $("#js-attention").remove();
-      //   $("#image_file").focus();
-      //   $("#new_image").prepend("<p id='js-attention'>ファイルを選択してください</p>");
-      //   return false;
-      // }
       $("body").append('<div class="new-image-modal"><span class="gauge-loader">Loading&#8230;</span></div>');
-      // $(":submit", this).prop("disabled", true);
     });
+
+    // 翻訳ページUI
+    var hasTapEvent = ('ontouchstart' in window);
+    if(hasTapEvent){
+      // sp
+      $(".image-upload-words-wrapper").on( "touchstart", function () {
+          hiddenInput = $(this).children("input");
+          wordWrapSpan = $(this).children(".image-upload-words");
+          var interval = 1000;
+          timer = setTimeout(function(){
+              wordWrapSpan.css("display", "none");
+              hiddenInput.css("display", "").focus();
+              $(".js-image-upload-edit-word").blur(function() {
+                  whenBlur($(this, wordWrapSpan, hiddenInput));
+              });}
+            , interval);
+      })
+    }else{
+      // pc
+      $(".image-upload-words-wrapper").on( "click", function(){
+          $(this).children(".image-upload-words").css("display", "none");
+          $(this).children("input")
+              .css("display", "")
+              .focus();
+          $(".js-image-upload-edit-word").blur(function() {
+              whenBlur($(this));
+          });
+      })
+    }
+
+    function whenBlur(obj,span=undefined, input=undefined){
+      if(obj.val() === ""){
+        obj.parent().remove();
+      };
+      if(span && input){
+        target.html(obj.val());
+        span.css("display", "");
+        input.css("display", "none");
+      }else{
+        obj.parent().children("span").html(obj.val());
+        obj.parent().children().css("display", "");
+        obj.css("display", "none");
+      }
+    }
+
 });

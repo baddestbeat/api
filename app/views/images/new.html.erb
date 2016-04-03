@@ -4,5 +4,5 @@
     <p id="js-attention"><%= @image.errors[:file][0] %></p>
   <% end %>
   <p class="select-image-input"><%= f.file_field :file %></p>
-  <p class="select-image-submit"><%= f.submit 'アップロード'%></p>
+  <p class="select-image-submit"><%= f.button 'アップロード'%></p>
 <% end %>

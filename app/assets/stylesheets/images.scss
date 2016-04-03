@@ -46,6 +46,7 @@ $image-uploads-color: #0000FF;
 .image-upload-words-wrapper{
   text-align:center;
   margin: 0px 15px 2px 15px;
+  position: relative;
 }
 .image-upload-words{
   background-color: $image-uploads-color;
@@ -60,12 +61,23 @@ $image-uploads-color: #0000FF;
 }
 .js-image-upload-edit-word{
   width:66px;
+  margin-top:8px;
   &:focus{
     border: 1px solid $image-uploads-color;
     outline: 0;
   }
 }
-.js-image-upload-word-edit, .js-image-upload-block-delete{
+.js-image-upload-block-delete{
+  border: 1px solid #808080;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  cursor:pointer;
+  text-decoration: none;
+}
+.js-image-upload-word-edit{
   font-size: 12px;
   line-height: 20px;
   color: #000000;
