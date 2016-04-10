@@ -1,7 +1,7 @@
 @charset "UTF-8";
 $base-font-color: #ffffff;
 $max-width: 960px;
-$min-width: 400px;
+$min-width: 320px;
 
 .width-set{
   min-width: $min-width;
@@ -64,7 +64,7 @@ header{
 #content-container{
   box-sizing:border-box;
   @extend .width-set;
-  padding:30px 20px 41px;
+  padding:30px 10px 41px;
 }
 
 footer{
@@ -118,9 +118,11 @@ small{
   font-weight: bold;
   justify-content:center;
   margin:15px 0 30px;
+  flex-wrap:wrap;
   li{
     background-color: #808080;
     padding: 3px 8px;
+    margin-bottom: 5px;
     &:not(:last-child){
         margin-right: 5px;
     }

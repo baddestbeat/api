@@ -1,5 +1,9 @@
 <section class="image-upload-show-result">
-  <h2 class="gvc-title">GOOGLE CLOUD VISIONでの結果</h2>
+  <div class="image-step-wrapper">
+    <p class="image-step">①画像UP</p><span class="triangle"></span>
+    <p class="image-step-current">②文字列</p><span class="triangle"></span>
+    <p class="image-step">③翻訳</p>
+  </div>
   <p class="image-uploaded"><%= image_tag "https://img.learntecs.xyz/#{@image.path}", :alt => @image.file.filename %></p>
   <p class="image-uploaded"><%= link_to "元の大きさで見る", @image.file.url, {target: "_blank"} %>
   <%= form_tag( trans_images_path, method: "post") do %>

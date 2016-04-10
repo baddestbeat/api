@@ -23,7 +23,6 @@ class ImagesController < ApplicationController
     else
       render :action => 'new'
     end
-
   end
 
   def list

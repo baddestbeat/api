@@ -2,8 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @charset "UTF-8";
-$image-uploads-color: #0000FF;
 
+$image-uploads-color: #0000FF;
+.image-step-wrapper{
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  width: 100%;
+  line-height: 40px;
+  margin-bottom: 50px;
+}
+.image-step, .image-step-current{
+  color: #ffffff;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+.image-step{
+  background: #B4B3B3;
+}
+.image-step-current{
+  background-color: $image-uploads-color;
+}
+.triangle{
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: 12px;
+  margin-left: 10px;
+  border-left: 8px solid #B4B3B3;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
 .gvc-title{
   font-size: 18px;
   font-weight:bold;
@@ -14,7 +45,7 @@ $image-uploads-color: #0000FF;
   text-align: center;
 }
 .select-image-input{
-  margin-top:30px;
+  margin-top:0px;
   text-align: center
 }
 .new-image-modal{
@@ -26,9 +57,8 @@ $image-uploads-color: #0000FF;
    background:rgba(0,0,0,0.8);
 }
 .gauge-loader{
-    position: fixed;
     top:50%;
-    left:50%;
+    left: calc(50% - 32px);
 }
 .image-uploaded{
   text-align: center;
@@ -42,10 +72,11 @@ $image-uploads-color: #0000FF;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .image-upload-words-wrapper{
   text-align:center;
-  margin: 0px 15px 2px 15px;
+  margin: 0px 15px 15px 15px;
   position: relative;
 }
 .image-upload-words{
@@ -60,7 +91,6 @@ $image-uploads-color: #0000FF;
   text-align: center;
 }
 .js-image-upload-edit-word{
-  width:66px;
   margin-top:8px;
   &:focus{
     border: 1px solid $image-uploads-color;
@@ -118,7 +148,6 @@ $image-uploads-color: #0000FF;
   background-color: #000000;
   padding: 10px 10px;
   text-align: center;
-  width: 300px;
   border-radius: 5px;
   z-index:1;
   margin: 0 auto;

@@ -14,13 +14,14 @@ $(function () {
     if(hasTapEvent){
       // sp
       $(".image-upload-words-wrapper").on( "touchstart", function () {
-          hiddenInput = $(this).children("input");
-          wordWrapSpan = $(this).children(".image-upload-words");
+          var inputWidth=$(this).width();
+          var hiddenInput = $(this).children("input");
+          var wordWrapSpan = $(this).children(".image-upload-words");
           var interval = 1000;
           timer = setTimeout(function(){
               wordWrapSpan.css("display", "none");
-              hiddenInput.css("display", "").focus();
-              $(".js-image-upload-edit-word").blur(function() {
+              hiddenInput.css("display", "").css("width", inputWidth-4).focus();
+              hiddenInput.blur(function() {
                   whenBlur($(this, wordWrapSpan, hiddenInput));
               });}
             , interval);
@@ -28,11 +29,11 @@ $(function () {
     }else{
       // pc
       $(".image-upload-words-wrapper").on( "click", function(){
+          var inputWidth=$(this).width();
           $(this).children(".image-upload-words").css("display", "none");
           $(this).children("input")
-              .css("display", "")
-              .focus();
-          $(".js-image-upload-edit-word").blur(function() {
+              .css("display", "").css("width", inputWidth-4).focus();
+          $(this).children("input").blur(function() {
               whenBlur($(this));
           });
       })

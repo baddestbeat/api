@@ -1,4 +1,9 @@
-<h2 class="gvc-title">画像選択</h2>
+<div class="image-step-wrapper">
+  <p class="image-step-current">①画像UP</p><span class="triangle"></span>
+  <p class="image-step">②文字列</p><span class="triangle"></span>
+  <p class="image-step">③翻訳</p>
+</div>
+
 <%= form_for @image, url: upload_images_path, html: { multipart: true } do |f| %>
   <% if @image.errors.any?%>
     <p id="js-attention"><%= @image.errors[:file][0] %></p>
