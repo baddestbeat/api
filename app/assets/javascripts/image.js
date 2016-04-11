@@ -12,12 +12,13 @@ $(function () {
     // 翻訳ページUI
     var hasTapEvent = ('ontouchstart' in window);
     if(hasTapEvent){
+      alert("hasTapEvent");
       // sp
       $(".image-upload-words-wrapper").on( "touchstart", function () {
           var inputWidth=$(this).width();
           var hiddenInput = $(this).children("input");
           var wordWrapSpan = $(this).children(".image-upload-words");
-          var interval = 1000;
+          var interval = 700;
           timer = setTimeout(function(){
               wordWrapSpan.css("display", "none");
               hiddenInput.css("display", "").css("width", inputWidth-4).focus();
@@ -25,8 +26,15 @@ $(function () {
                   whenBlur($(this, wordWrapSpan, hiddenInput));
               });}
             , interval);
+
+            function clearFunction(){
+                clearTimeout( timer );
+            }
+            $( ".image-upload-words-wrapper" ).bind( "touchend touchmove touchcancel", clearFunction );
       })
+
     }else{
+      alert("not");
       // pc
       $(".image-upload-words-wrapper").on( "click", function(){
           var inputWidth=$(this).width();
