@@ -12,7 +12,6 @@ $(function () {
     // 翻訳ページUI
     var hasTapEvent = ('ontouchstart' in window);
     if(hasTapEvent){
-      alert("hasTapEvent");
       // sp
       $(".image-upload-words-wrapper").on( "touchstart", function () {
           var inputWidth=$(this).width();
@@ -34,7 +33,6 @@ $(function () {
       })
 
     }else{
-      alert("not");
       // pc
       $(".image-upload-words-wrapper").on( "click", function(){
           var inputWidth=$(this).width();
