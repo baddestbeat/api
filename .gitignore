@@ -6,6 +6,6 @@ vendor/bundle/*
 log/*.log
 tmp/cache/assets/*
 tmp/pids/*
-
+.project
 
 public/uploads/image/*
