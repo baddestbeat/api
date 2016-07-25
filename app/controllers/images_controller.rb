@@ -1,4 +1,4 @@
-#
+# add
 class ImagesController < ApplicationController
   permits :file
   require 'time'
